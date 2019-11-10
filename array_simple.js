@@ -1,0 +1,98 @@
+// 1. push, pop, shift, unshift
+
+//push - добавление элемента в конец массива
+let arr1 = [1, 2, 3];
+arr1.push(4);
+console.log(arr1); // [1, 2, 3, 4]
+
+// pop - удалаяем с конца
+arr1.pop();
+console.log(arr1); // [1, 2, 3]
+
+// shift - удаляет с начала
+arr1.shift();
+console.log(arr1); // [2, 3]
+
+// unshift - добавление элемента в начале массива
+arr1.unshift(5);
+console.log(arr1); // [5, 2, 3]
+
+
+// 2. join, split
+
+// join: array -> string
+let arr2_1 = ['a', 'b', 'c', 'd'];
+let string2_1 = arr2_1.join(' ');
+console.log(string2_1); // a b c d
+
+
+// split: string -> array
+let string2_2 = 'hello';
+let arr2_2 = string2_2.split('');
+console.log(arr2_2); // [ 'h', 'e', 'l', 'l', 'o' ]
+
+let string2_3 = 'a,b,c,d,e,f,g';
+let arr2_3_1 = string2_3.split(',');
+console.log(arr2_3_1); // [ 'a', 'b', 'c', 'd', 'e', 'f', 'g' ]
+
+let arr2_3_2 = string2_3.split('');
+console.log(arr2_3_2); // [ 'a', ',', 'b', ',', 'c', ',', 'd', ',', 'e', ',', 'f', ',', 'g' ]
+
+let arr2_3_3 = string2_3.split(' ');
+console.log(arr2_3_3); // [ 'a,b,c,d,e,f,g' ]
+
+
+// 3. slice: [начальный индекс, конечный индекс)
+let arr3_1 = [1, 2, 3, 4, 5];
+let arr3_1_1 = arr3_1.slice(0, 3);
+console.log(arr3_1_1); // [ 1, 2, 3 ]
+let arr3_1_2 = arr3_1.slice(-1);
+console.log(arr3_1_2); // [ 5 ]
+
+
+// 4. concat - копирование элементов
+let arr4_1 = [1, 2, 3, 4];
+let arr4_1_1 = arr4_1.concat();
+console.log(arr4_1_1); // [ 1, 2, 3, 4 ]
+
+
+// 5. splice: (с какого индекса начинать, сколько элементов убирать, элементы на замену или какой-нибудь массив)
+let arr5_1 = ['a', 'b', 'c', 'd'];
+arr5_1.splice(1, 2, 'js');
+console.log(arr5_1); // [ 'a', 'js', 'd' ]
+arr5_1.splice(1);
+console.log(arr5_1); // [ 'a' ]
+
+// 6. reverse
+let arr6 = [1, 2, 3, 4, 5];
+console.log(arr6.reverse()); // [ 5, 4, 3, 2, 1 ]
+
+let palindrome = str => {
+  str = str.toLowerCase();
+  return console.log(str === str.split('')
+                                .reverse()
+                                .join(''));
+};
+palindrome('Anna'); // true
+palindrome('Roman'); // false
+
+
+console.log('test'.split('')); // [ 't', 'e', 's', 't' ]
+console.log('test'.split('').reverse()); // [ 't', 's', 'e', 't' ]
+console.log('test'.split('').reverse().join()); // t,s,e,t
+console.log('test'.split('').reverse().join('')); // tset
+
+
+// 7. sort
+console.log(['b', 'a', 'd', 'e', 'c'].sort()); // [ 'a', 'b', 'c', 'd', 'e' ]
+
+let numbers = [50, 30, 20, 10, 2];
+numbers.sort((prev, next) => {
+  console.log(prev, next);
+});
+numbers.sort( (prev, next) => prev - next);
+console.log(numbers); // [ 2, 10, 20, 30, 50 ]
+
+
+
+
