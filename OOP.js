@@ -20,6 +20,7 @@ function person(name, surname, age) {
   };
   return person;
 }
+
 const PERSON = person('Roman', 'Schigolev', 20);
 console.log(PERSON);
 // { name: 'Roman',
@@ -207,110 +208,38 @@ console.log(cat);
 //   color: 'Black'
 // }
 
-
-class Component {
-  constructor(selector) {
-    this.$el = document.querySelector(selector);
-    this.$el.addEventListener('click', (event) => {
-      console.log('Fired');
-    });
+class Button {
+  constructor(text = Button.getDefaultText(), color = Button.getDefaultColor()) {
+    this.text = text;
+    this.color = color;
+    this.isPressed = false;
   }
 
-  hide() {
-    this.$el.style.opacity = '0';
+  static getDefaultText() {
+    return 'Click me';
   }
 
-  show() {
-    this.$el.style.opacity = '1';
+  static getDefaultColor() {
+    return 'black';
   }
-}
 
-class Figure extends Component {
-  constructor(options) {
-    super(options.selector);
-    this.$el.style.width = this.$el.style.height = `${options.size}px`;
-    this.$el.style.backgroundColor = options.color;
-    this.$el.style.transition = options.transition;
+  pressButton() {
+    this.isPressed = !this.isPressed;
   }
 }
 
-const box1 = new Figure({
-  selector: '#box1',
-  size: 200,
-  color: '#000000',
-  transition: '0.3s'
-});
-
-const box2 = new Figure({
-  selector: '#box2',
-  size: 200,
-  color: '#a93b74',
-  transition: '0.3s'
-});
-
-class Circle extends Figure {
-  constructor(options) {
-    super(options);
-    this.$el.style.borderRadius = `${options.border}%`;
+class SocialButton extends Button {
+  constructor(text, color, icon) {
+    super(text, color);
+    this.icon = icon;
   }
 }
 
-const circle = new Circle({
-  selector: '#circle1',
-  size: 200,
-  color: '#414ca9',
-  transition: '0.3s',
-  border: 50,
-});
+const SUPERBUTTON = new SocialButton('Hello', 'blue', 'VK');
+console.log(SUPERBUTTON); // SocialButton { text: 'Hello', color: 'blue', isPressed: false, icon: 'VK' }
 
-let bubble1, bubble2;
+const SUPERBUTTON_2 = new SocialButton(undefined, 'red', 'youtube');
+console.log(SUPERBUTTON_2); // SocialButton {text: 'Click me', color: 'red', isPressed: false, icon:'youtube'}
 
-function setup() {
-  createCanvas(600, 500);
-  bubble1 = new Bubble({
-    x: 200,
-    y: 150
-  });
-  bubble2 = new Bubble({
-    x: 300,
-    y: 250
-  });
-  print(bubble1.x, bubble1.y);
-  print(bubble2.x, bubble2.y);
-}
-
-function draw() {
-  background(0);
-  bubble1.move();
-  bubble1.show();
-  bubble2.move();
-  bubble2.show();
-}
-
-class Bubble {
-  constructor(value) {
-    this.x = value.x;
-    this.y = value.y;
-  }
-
-  move() {
-    this.x = this.x + random(-1, 1);
-    this.y = this.y + random(-1, 1);
-  }
-
-  show() {
-    stroke(255);
-    strokeWeight(3);
-    noFill();
-    ellipse(this.x, this.y, 40, 40);
-  }
-}
-
-
-
-
-
-
-
-
-
+SUPERBUTTON.pressButton();
+console.log(SUPERBUTTON); // SocialButton { text: 'Hello', color: 'blue', isPressed: true, icon: 'VK' }
