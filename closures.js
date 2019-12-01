@@ -37,10 +37,11 @@ function urlGenerator(domain) {
 
 const comUrl = urlGenerator('com');
 const ruUrl = urlGenerator('ru');
+const ruUrl_2 = urlGenerator('ru');
 
 console.log(comUrl('google')); // https://google.com
 console.log(ruUrl('yandex')); // https://yandex.ru
-
+console.log(ruUrl_2('hi')); // https://hi.ru
 
 console.log('-------------------------');
 
@@ -81,11 +82,43 @@ manager.print();
 
 console.log('------------------------');
 
-const fib = [0, 1, 1, 2, 3, 5, 8, 13, 21];
+function createCounter() {
+  let counter = 0;
+  const myFunc = function () {
+    counter += 1;
+    return counter;
+  };
+  return myFunc;
+}
 
+const increment = createCounter();
+console.log(increment);
+const c1 = increment();
+const c2 = increment();
+const c3 = increment();
+console.log(`c1 = ${c1}`); // c1 = 1
+console.log(`c2 = ${c2}`); // c2 = 2
+console.log(`c3 = ${c3}`); // c3 = 3
+
+console.log(increment()); // 4
+console.log(increment()); // 5
+console.log(increment()); // 6
+console.log(increment()); // 7
+console.log(increment()); // 8
+
+console.log('---------------------');
+
+const increment2 = createCounter();
+console.log(increment2()); // 1
+console.log(increment2()); // 2
+console.log(increment2()); // 3
+console.log(increment2()); // 4
+console.log(increment2()); // 5
+
+const fib = [0, 1, 1, 2, 3, 5, 8, 13, 21];
 for (var i = 0; i < fib.length; i++) {
-  (function(j) {
+  (function (j) {
     const handler = () => console.log(`fib[${j}] = ${fib[j]}`);
-    setTimeout(handler, 2000);
+    setTimeout(handler, 1000);
   })(i)
 }
