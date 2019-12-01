@@ -78,3 +78,14 @@ const SHOPPING_CART = [
 //     };
 //   });
 // console.log(UNIQUE);
+
+const array = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+array.forEach((item, index, array) => {
+  console.log(`array{${index}} = ${item}`);
+});
+
+console.log('--------');
+
+for (let i = 0; i < array.length; i++) {
+  console.log(`array{${i}} = ${array[i]}`);
+}

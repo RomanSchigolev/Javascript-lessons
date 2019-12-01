@@ -21,7 +21,7 @@ arr4.push(4);
 console.log('arr3', arr3); // [1, 2, 3]
 console.log('arr4', arr4); // [1, 2, 3, 4]
 
-console.log('----------------')
+console.log('----------------');
 
 let arr5 = [1, 2, 3];
 let arr6 = arr5;
