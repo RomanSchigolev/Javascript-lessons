@@ -115,10 +115,41 @@ console.log(increment2()); // 3
 console.log(increment2()); // 4
 console.log(increment2()); // 5
 
-const fib = [0, 1, 1, 2, 3, 5, 8, 13, 21];
-for (var i = 0; i < fib.length; i++) {
-  (function (j) {
-    const handler = () => console.log(`fib[${j}] = ${fib[j]}`);
-    setTimeout(handler, 1000);
-  })(i)
+// const fib = [0, 1, 1, 2, 3, 5, 8, 13, 21];
+// for (var i = 0; i < fib.length; i++) {
+//   (function (j) {
+//     const handler = () => console.log(`fib[${j}] = ${fib[j]}`);
+//     setTimeout(handler, 1000);
+//   })(i)
+// }
+
+
+let variable = 5;
+const addSome = x => n => n + x; // странно выглядит, но ничего...
+const addThree = addSome(3);
+console.log(addSome); // x => n => n + x
+console.log(addThree); // n => n + x
+const mainVariable = addThree(variable);
+console.log(mainVariable); // 8
+console.log(addThree(1)); // 4
+console.log(addSome(3)(3)); // 6
+console.log('--------------------------');
+function addSomeNormal(x) {
+  return function(n) {
+    return n + x;
+  }
 }
+console.log(addSomeNormal);
+// ƒ addSomeNormal(x) {
+//   return function(n) {
+//     return n + x;
+//   }
+// }
+const addThreeNormal = addSomeNormal(3);
+console.log(addThreeNormal);
+// ƒ (n) {
+//   return n + x;
+// }
+const mainVariableNormal = addThreeNormal(variable);
+console.log(mainVariableNormal); // 8
+console.log(addSomeNormal(7)(3)); // 10
