@@ -70,8 +70,8 @@ console.log(arr6.reverse()); // [ 5, 4, 3, 2, 1 ]
 let palindrome = str => {
   str = str.toLowerCase();
   return console.log(str === str.split('')
-                                .reverse()
-                                .join(''));
+    .reverse()
+    .join(''));
 };
 palindrome('Anna'); // true
 palindrome('Roman'); // false
@@ -90,8 +90,24 @@ let numbers = [50, 30, 20, 10, 2];
 numbers.sort((prev, next) => {
   console.log(prev, next);
 });
-numbers.sort( (prev, next) => prev - next);
+numbers.sort((prev, next) => prev - next);
 console.log(numbers); // [ 2, 10, 20, 30, 50 ]
+
+numbers.sort((prev, next) => next - prev);
+console.log(numbers); // [ 50, 30, 20, 10, 2 ]
+
+// 8. flat - поднимает вложенные массивы на указанный уровень depth
+const ARRAY = [[1, 2, 3], 4, 5, [7, 8,]];
+const ARRAY_NEW = ARRAY.flat(0);
+console.log(ARRAY_NEW); // [ [ 1, 2, 3 ], 4, 5, [ 7, 8 ] ]
+console.log(ARRAY.flat(1)); // [1, 2, 3, 4, 5, 7, 8]
+
+// 9. flatMap - метод применяет функцию к каждому элементу массива, а затем сглаживает результат в новый массив. Объединяет метод flat() и метод map() в одну функцию.
+const ARR = [1,2,3,4,5,6,7,8,9,10];
+const ARR_NEW = ARR.flatMap((item, index, array) => [[item * 10]]);
+console.log(ARR_NEW);
+// [[ 10 ], [ 20 ], [ 30 ], [ 40 ], [ 50 ], [ 60 ], [ 70 ], [ 80 ], [ 90 ], [ 100 ]]
+
 
 
 

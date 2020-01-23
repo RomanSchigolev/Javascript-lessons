@@ -67,7 +67,7 @@ function createFrameworkManager() {
       console.log(fw.join(', '));
     },
     add(framework) {
-      fw.unshift(framework);
+      fw.push(framework);
     }
   }
 }
@@ -134,11 +134,13 @@ console.log(mainVariable); // 8
 console.log(addThree(1)); // 4
 console.log(addSome(3)(3)); // 6
 console.log('--------------------------');
+
 function addSomeNormal(x) {
-  return function(n) {
+  return function (n) {
     return n + x;
   }
 }
+
 console.log(addSomeNormal);
 // ƒ addSomeNormal(x) {
 //   return function(n) {

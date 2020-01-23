@@ -89,3 +89,17 @@ console.log('--------');
 for (let i = 0; i < array.length; i++) {
   console.log(`array{${i}} = ${array[i]}`);
 }
+
+
+// Нужно реализовать функцию, которая вычисляет средний возраст
+let arrays = [
+  {name: "1", age: 10},
+  {name: "2", age: 20},
+  {name: "3", age: 30}
+];
+
+function func(array) {
+  const totalAge = array.reduce((accum, item) => accum + item.age, 0) / array.length;
+  return totalAge;
+}
+console.log(func(arrays)); // 20
