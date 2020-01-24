@@ -1,36 +1,3 @@
-const PERS = {
-  name: 'Roman',
-  surname: 'Schigolev',
-  age: 20,
-  sayHello() {
-    console.log(`Hello! My name is ${this.name} ${this.surname}. I am ${this.age} years old.`);
-  }
-};
-
-PERS.sayHello(); // Hello! My name is Roman Schigolev. I am 20 years old.
-
-function person(name, surname, age) {
-  let person = {
-    name,
-    surname,
-    age,
-    sayHi() {
-      console.log(`Hi, my name is ${this.name} ${this.surname}`);
-    }
-  };
-  return person;
-}
-
-const PERSON = person('Roman', 'Schigolev', 20);
-console.log(PERSON);
-// { name: 'Roman',
-//   surname: 'Schigolev',
-//   age: 20,
-//   sayHi: [Function: sayHi]
-// }
-PERSON.sayHi(); // Hi, my name is Roman Schigolev
-
-
 // КЛАССЫ
 // < ES6
 function Hero(firstName, lastName, years) {
@@ -132,7 +99,7 @@ class Rabbit extends Animal {
   }
 
   hide() {
-    console.log('Прячется');
+    console.log(`${this.name} прячется`);
   }
 }
 
@@ -146,13 +113,14 @@ const rabbit = new Rabbit({
 
 console.log(rabbit);
 // Rabbit {
-//   name: 'Animal',
-//   age: undefined,
-//   type: undefined,
-//   voice: undefined,
+//   name: 'Bunny',
+//   age: 4,
+//   type: 'mammal',
+//   voice: 'Unknown',
 //   speed: null,
 //   color: 'White'
 // }
+
 rabbit.run(10); // Bunny бежит со скоростью 10.
 rabbit.hide(); // Прячется
 rabbit.saySomething(); // Unknown
@@ -174,7 +142,7 @@ class Cat extends Animal {
 }
 
 const cat = new Cat({
-  name: 'CAT',
+  name: 'Chester',
   age: 10,
   type: 'mammal',
   voice: 'Myau',
@@ -183,7 +151,7 @@ const cat = new Cat({
 
 console.log(cat);
 // Cat {
-//   name: 'CAT',
+//   name: 'Chester',
 //   age: 10,
 //   type: 'mammal',
 //   voice: 'Myau',
