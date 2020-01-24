@@ -70,8 +70,8 @@ console.log(arr6.reverse()); // [ 5, 4, 3, 2, 1 ]
 let palindrome = str => {
   str = str.toLowerCase();
   return console.log(str === str.split('')
-    .reverse()
-    .join(''));
+                                .reverse()
+                                .join(''));
 };
 palindrome('Anna'); // true
 palindrome('Roman'); // false
@@ -108,7 +108,13 @@ const ARR_NEW = ARR.flatMap((item, index, array) => [[item * 10]]);
 console.log(ARR_NEW);
 // [[ 10 ], [ 20 ], [ 30 ], [ 40 ], [ 50 ], [ 60 ], [ 70 ], [ 80 ], [ 90 ], [ 100 ]]
 
+// 10. fill - метод заполняет все элементы массива одинаковым значением, от начального индекса (по умолчанию 0) до конечного индекса (невключительно) (по умолчанию array.length).
+const mySomeArray = [1,2,3,4,5,6];
+console.log(mySomeArray.fill(10, 1, 3)); // [ 1, 10, 10, 4, 5, 6 ]
 
+// 11. includes - метод возвращает значение true, если массив содержит определенный элемент, и значение false — если нет.
+console.log(mySomeArray.includes(1, 2)); // false
+console.log(mySomeArray.includes(1, 0)); // true
 
 
 
