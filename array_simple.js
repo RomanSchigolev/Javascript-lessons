@@ -121,12 +121,19 @@ const a = [
   [4,5,6],
   [7,8,9]
 ];
+let sum = 0;
+let b = '';
 
 for (let i = 0; i < a.length; i++) {
   for (let j = 0; j < a[i].length; j++) {
-    console.log(a[i][j]);
+    b += `${a[i][j]} `;
   }
+  b += '\n';
 }
+console.log(b);
+// 1 2 3
+// 4 5 6
+// 7 8 9
 
 
 
