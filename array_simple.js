@@ -116,5 +116,17 @@ console.log(mySomeArray.fill(10, 1, 3)); // [ 1, 10, 10, 4, 5, 6 ]
 console.log(mySomeArray.includes(1, 2)); // false
 console.log(mySomeArray.includes(1, 0)); // true
 
+const a = [
+  [1,2,3],
+  [4,5,6],
+  [7,8,9]
+];
+
+for (let i = 0; i < a.length; i++) {
+  for (let j = 0; j < a[i].length; j++) {
+    console.log(a[i][j]);
+  }
+}
+
 
 
