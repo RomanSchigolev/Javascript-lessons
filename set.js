@@ -52,3 +52,10 @@ let array = Array.from(newSet);
 console.log(array); // [ 2, 3, 4, 'hello', { a: 5, b: 6 }, [ 7, 8, 9 ] ]
 console.log(array.flat(1)); // [ 2, 3, 4, 'hello', { a: 5, b: 6 }, 7, 8, 9 ]
 
+// ===================
+
+let uniqueValueOfArray = (array) => {
+  return (new Set(array));
+};
+console.log(uniqueValueOfArray([1,1,1,2,2,2,3,3,3,4,4,4,5,5,5])); // Set { 1, 2, 3, 4, 5 }
+
