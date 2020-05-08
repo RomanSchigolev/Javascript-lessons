@@ -65,9 +65,12 @@ Promise.race([wait(2000), wait(5000)])
 	.then(() => {
 		console.log("Race promises")
 	})
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> c19072eaf4cf21d36474e03558898bfdef564edc
 
 const URL = "https://jsonplaceholder.typicode.com/photos";
 
