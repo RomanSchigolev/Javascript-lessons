@@ -21,15 +21,15 @@ setTimeout(() => {
 }, 2000);
 
 const promise = new Promise((resolve, reject) => {
-		setTimeout(() => {
+	setTimeout(() => {
 		console.log("Preparing Data...");
-			const BACKEND_DATA = {
-				server: "aws",
-				port: 2000,
-				status: "working"
-			};
-			resolve(BACKEND_DATA);
-		}, 2000);
+		const BACKEND_DATA = {
+			server: "aws",
+			port: 2000,
+			status: "working"
+		};
+		resolve(BACKEND_DATA);
+	}, 2000);
 });
 
 promise
@@ -44,8 +44,8 @@ promise
 	.then(userData => {
 		console.log("User Data received", userData);
 	})
-	.catch(error => {console.error("Error: ", error);})
-	.finally(() => {console.log("Finally");})
+	.catch(error => { console.error("Error: ", error); })
+	.finally(() => { console.log("Finally"); })
 
 
 const wait = ms => {
@@ -65,12 +65,7 @@ Promise.race([wait(2000), wait(5000)])
 	.then(() => {
 		console.log("Race promises")
 	})
-<<<<<<< HEAD
 
-
-
-=======
->>>>>>> c19072eaf4cf21d36474e03558898bfdef564edc
 
 const URL = "https://jsonplaceholder.typicode.com/photos";
 
@@ -183,7 +178,7 @@ class UserData {
 (async () => {
 	const URL = "https://jsonplaceholder.typicode.com";
 	const userData = new UserData(URL);
-	
+
 	try {
 		const USER = await userData.getUser(1);
 		const USER_POST = await userData.getPost(USER.id);
