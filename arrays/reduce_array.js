@@ -1,10 +1,13 @@
-const array = [12];
+const array = [0, "a"];
 const array2 = ["a", "b"]
 
 const sum = (acc, val) => acc + val;
 
 const res = array.reduce(sum);
-console.log(res); // 12
+console.log(res); // 0a
+
+const res1 = array2.reduce(sum);
+console.log(res1); // ab
 
 const myReduce = (reducer, array, initialValue = 0) => {
   if (array.length === 0 && initialValue === null) {
@@ -16,7 +19,7 @@ const myReduce = (reducer, array, initialValue = 0) => {
     accumulatorValue = reducer(accumulatorValue, currentValue);
   }
   if (typeof (accumulatorValue) === "string") {
-    let result = accumulatorValue.split("");
+    const result = accumulatorValue.split("");
     if (result[0] === "0") {
       result.splice(0, 1);
       return result.join("");
@@ -24,4 +27,7 @@ const myReduce = (reducer, array, initialValue = 0) => {
   } else return accumulatorValue;
 }
 const res2 = myReduce(sum, array)
-console.log(res2); // 12
+console.log(res2); // a  - не правильно отрабатывает. Исправлял одно - выскочило другое
+
+const res3 = myReduce(sum, array2);
+console.log(res3); // ab
